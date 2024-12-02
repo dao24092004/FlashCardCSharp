@@ -189,7 +189,7 @@ namespace FlashCard.View.TrangChu
                 // Hiển thị AddWordForm dưới dạng hộp thoại
                 if (addForm.ShowDialog() == DialogResult.OK)
                 {
-                    // Lấy dữ liệu từ AddWordForm và thêm vào DataGridView
+                    // Lấy dữ liệu từ AddWordForm và thêm vào DataGridView hêlol 
                     LoadData();              
                         }
             }

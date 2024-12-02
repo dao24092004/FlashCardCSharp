@@ -13,10 +13,13 @@ namespace FlashCard.Controller
         private User user;
         private UserDao userDao;
         
+        //diều hướng dắng nhập
+
 
         public LoginController()
         {
             this.userDao  = new ImpUserDao();
+
         }
 
         public User Login(User checkUser)
