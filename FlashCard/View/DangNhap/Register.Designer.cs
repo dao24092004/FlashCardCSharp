@@ -273,7 +273,7 @@
         private Panel panel1;
         private TextBox txtRsUsername;
         private PictureBox pictureBox3;
-        private Button SignUp;
+        public Button SignUp;
         private Panel panel2;
         private TextBox txtRsPass;
         private PictureBox pictureBox4;

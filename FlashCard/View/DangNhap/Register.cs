@@ -1,13 +1,5 @@
-﻿using FlashCard.Controller;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FlashCard.Controller;
 
@@ -16,12 +8,13 @@ namespace FlashCard.View.DangNhap
     public partial class Register : UserControl
     {
         public event Action OnBackToLogin;
-        private RegisterController _registerController;
+        public event Action OnSignUpSuccess;
+        private readonly RegisterController _registerController;
 
         public Register()
         {
             InitializeComponent();
-            _registerController = new RegisterController(); // Initialize the controller
+            _registerController = new RegisterController();
         }
 
         private void setNull()
@@ -43,7 +36,6 @@ namespace FlashCard.View.DangNhap
 
         public static bool checkEmail(string email)
         {
-            // Regular expression for email validation
             string emailRegex = @"^[a-zA-Z][a-zA-Z0-9._]*@gmail\.com$";
             return Regex.IsMatch(email, emailRegex);
         }
@@ -103,7 +95,7 @@ namespace FlashCard.View.DangNhap
             {
                 MessageBox.Show("Đăng ký thành công! Vui lòng kiểm tra email để xác minh tài khoản.");
                 setNull();
-                OnBackToLogin?.Invoke();
+                OnSignUpSuccess?.Invoke(); // Gọi sự kiện khi đăng ký thành công
                 this.Dispose();
             }
             else
@@ -112,5 +104,4 @@ namespace FlashCard.View.DangNhap
             }
         }
     }
-
 }

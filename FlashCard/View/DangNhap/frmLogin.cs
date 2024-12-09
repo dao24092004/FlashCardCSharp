@@ -20,7 +20,7 @@ namespace FlashCard.View.DangNhap
         private readonly LoginController _loginController;
         public User user;
 
-       
+
 
 
 
@@ -29,6 +29,7 @@ namespace FlashCard.View.DangNhap
             InitializeComponent();
             _loginController = new LoginController();
             PnLogin.BringToFront();
+
         }
 
         private void setNull()
@@ -53,11 +54,11 @@ namespace FlashCard.View.DangNhap
             }
         }
 
-        public User getUser() 
-            {
-                
-                return this.user;
-            }
+        public User getUser()
+        {
+
+            return this.user;
+        }
 
         private void SIGNIN_Click(object sender, EventArgs e)
         {
@@ -66,7 +67,7 @@ namespace FlashCard.View.DangNhap
             string password = txtLoginPass.Text.Trim();
 
 
-            
+
 
             // Kiểm tra trường email có trống hay không
             if (string.IsNullOrEmpty(email))
@@ -125,10 +126,6 @@ namespace FlashCard.View.DangNhap
             }
         }
 
-
-
-
-
         private void Exit_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -136,11 +133,24 @@ namespace FlashCard.View.DangNhap
 
         private void CreateAccount_Click(object sender, EventArgs e)
         {
+            // Khởi tạo giao diện đăng ký
             Register registerControl = new Register();
+            this.AcceptButton = registerControl.SignUp;
             registerControl.Location = PnLogin.Location;
+
+            // Xử lý sự kiện quay lại trang đăng nhập
             registerControl.OnBackToLogin += () =>
             {
                 PnLogin.BringToFront();
+            };
+
+            // Xử lý sự kiện hoàn tất đăng ký
+            registerControl.OnSignUpSuccess += () =>
+            {
+                // Chuyển đến giao diện mã xác thực
+                xacthuc xacthucForm = new xacthuc();
+                xacthucForm.Show();
+
             };
 
             this.Controls.Add(registerControl);
@@ -151,6 +161,7 @@ namespace FlashCard.View.DangNhap
         private void ForgotPass_Click(object sender, MouseEventArgs e)
         {
             ForgotPass forgotPassControl = new ForgotPass();
+            this.AcceptButton = forgotPassControl.SIGNIN;
             forgotPassControl.Location = PnLogin.Location;
             forgotPassControl.OnBackToLogin += () =>
             {
@@ -160,6 +171,24 @@ namespace FlashCard.View.DangNhap
             this.Controls.Add(forgotPassControl);
             forgotPassControl.BringToFront();
             setNull();
+        }
+
+         private void hideye_Click(object sender, EventArgs e)
+        {
+            if(txtLoginPass.PasswordChar == '*')
+            {
+                eye.BringToFront();
+                txtLoginPass.PasswordChar = '\0';
+            }
+        }
+
+        private void eye_Click(object sender, EventArgs e)
+        {
+            if(txtLoginPass.PasswordChar == '\0')
+            {
+                hideye.BringToFront();
+                txtLoginPass.PasswordChar = '*';
+            }
         }
     }
 }

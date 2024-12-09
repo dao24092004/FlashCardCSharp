@@ -31,6 +31,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            Kiemtra = new Button();
             button7 = new Button();
             label3 = new Label();
             SildePanel = new Panel();
@@ -55,6 +56,7 @@
             pagE41 = new PAGE4();
             pagE51 = new PAGE5();
             notifyIcon1 = new NotifyIcon(components);
+            kiemtra1 = new Kiemtra();
             panel1.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -65,6 +67,7 @@
             // panel1
             // 
             panel1.BackColor = Color.LightBlue;
+            panel1.Controls.Add(Kiemtra);
             panel1.Controls.Add(button7);
             panel1.Controls.Add(label3);
             panel1.Controls.Add(SildePanel);
@@ -82,6 +85,23 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // Kiemtra
+            // 
+            Kiemtra.BackColor = Color.DeepSkyBlue;
+            Kiemtra.FlatAppearance.BorderSize = 0;
+            Kiemtra.FlatStyle = FlatStyle.Flat;
+            Kiemtra.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            Kiemtra.ForeColor = SystemColors.ButtonHighlight;
+            Kiemtra.Image = (Image)resources.GetObject("Kiemtra.Image");
+            Kiemtra.ImageAlign = ContentAlignment.MiddleLeft;
+            Kiemtra.Location = new Point(16, 359);
+            Kiemtra.Name = "Kiemtra";
+            Kiemtra.Size = new Size(234, 45);
+            Kiemtra.TabIndex = 7;
+            Kiemtra.Text = "Kiem tra";
+            Kiemtra.UseVisualStyleBackColor = false;
+            Kiemtra.Click += Kiemtra_Click;
+            // 
             // button7
             // 
             button7.BackColor = Color.DeepSkyBlue;
@@ -97,7 +117,6 @@
             button7.TabIndex = 6;
             button7.Text = "Quản lý người dùng";
             button7.UseVisualStyleBackColor = false;
-            button7.Click += button7_Click;
             // 
             // label3
             // 
@@ -112,7 +131,7 @@
             // SildePanel
             // 
             SildePanel.BackColor = SystemColors.ActiveCaption;
-            SildePanel.Location = new Point(3, 154);
+            SildePanel.Location = new Point(3, 122);
             SildePanel.Name = "SildePanel";
             SildePanel.Size = new Size(10, 45);
             SildePanel.TabIndex = 2;
@@ -158,7 +177,7 @@
             button4.ForeColor = SystemColors.ButtonHighlight;
             button4.Image = (Image)resources.GetObject("button4.Image");
             button4.ImageAlign = ContentAlignment.MiddleLeft;
-            button4.Location = new Point(19, 347);
+            button4.Location = new Point(19, 304);
             button4.Name = "button4";
             button4.Size = new Size(234, 45);
             button4.TabIndex = 3;
@@ -175,7 +194,7 @@
             button3.ForeColor = SystemColors.ButtonHighlight;
             button3.Image = (Image)resources.GetObject("button3.Image");
             button3.ImageAlign = ContentAlignment.MiddleLeft;
-            button3.Location = new Point(19, 280);
+            button3.Location = new Point(19, 243);
             button3.Name = "button3";
             button3.Size = new Size(234, 45);
             button3.TabIndex = 3;
@@ -192,7 +211,7 @@
             button2.ForeColor = SystemColors.ButtonHighlight;
             button2.Image = (Image)resources.GetObject("button2.Image");
             button2.ImageAlign = ContentAlignment.MiddleLeft;
-            button2.Location = new Point(19, 215);
+            button2.Location = new Point(19, 183);
             button2.Name = "button2";
             button2.Size = new Size(234, 45);
             button2.TabIndex = 3;
@@ -208,7 +227,7 @@
             button1.Font = new Font("Century", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             button1.ForeColor = SystemColors.ButtonHighlight;
             button1.ImageAlign = ContentAlignment.MiddleLeft;
-            button1.Location = new Point(19, 154);
+            button1.Location = new Point(19, 122);
             button1.Name = "button1";
             button1.Size = new Size(231, 45);
             button1.TabIndex = 2;
@@ -222,7 +241,7 @@
             panel3.Controls.Add(pictureBox1);
             panel3.Location = new Point(3, 3);
             panel3.Name = "panel3";
-            panel3.Size = new Size(241, 131);
+            panel3.Size = new Size(241, 103);
             panel3.TabIndex = 0;
             // 
             // label1
@@ -353,11 +372,19 @@
             notifyIcon1.Icon = (Icon)resources.GetObject("notifyIcon1.Icon");
             notifyIcon1.Text = "-\r\n";
             // 
+            // kiemtra1
+            // 
+            kiemtra1.Location = new Point(250, 189);
+            kiemtra1.Name = "kiemtra1";
+            kiemtra1.Size = new Size(960, 441);
+            kiemtra1.TabIndex = 9;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1210, 630);
+            Controls.Add(kiemtra1);
             Controls.Add(pagE51);
             Controls.Add(pagE41);
             Controls.Add(pagE31);
@@ -408,5 +435,7 @@
         private PAGE5 pagE51;
         private NotifyIcon notifyIcon1;
         private Button button7;
+        private Button Kiemtra;
+        private Kiemtra kiemtra1;
     }
 }

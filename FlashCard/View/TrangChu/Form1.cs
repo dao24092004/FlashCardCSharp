@@ -18,11 +18,11 @@ namespace FlashCard.View.TrangChu
 
             // Các phần khởi tạo khác
             pagE11 = new PAGE1(LoggedInUser);
-            pagE11.Location = new Point(250, 154);
+            pagE11.Location = new Point(220, 75);
             pagE11.Size = new Size(960, 473);
             Controls.Add(pagE11);
 
-            
+
 
             SildePanel.Height = button1.Height;
             SildePanel.Top = button1.Top;
@@ -146,9 +146,11 @@ namespace FlashCard.View.TrangChu
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        private void Kiemtra_Click(object sender, EventArgs e)
         {
-
+            SildePanel.Height = Kiemtra.Height;
+            SildePanel.Top = Kiemtra.Top;
+            kiemtra1.BringToFront();
         }
     }
 }

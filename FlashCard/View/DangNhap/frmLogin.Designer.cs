@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             label1 = new Label();
@@ -42,16 +43,20 @@
             txtLoginEmail = new TextBox();
             pictureBox3 = new PictureBox();
             panel2 = new Panel();
+            hideye = new PictureBox();
             txtLoginPass = new TextBox();
             pictureBox4 = new PictureBox();
             remember = new RadioButton();
+            eye = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             PnLogin.SuspendLayout();
             panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)hideye).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)eye).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -212,6 +217,8 @@
             // panel2
             // 
             panel2.BackColor = Color.Transparent;
+            panel2.Controls.Add(hideye);
+            panel2.Controls.Add(eye);
             panel2.Controls.Add(txtLoginPass);
             panel2.Controls.Add(pictureBox4);
             panel2.Location = new Point(0, 259);
@@ -220,6 +227,17 @@
             panel2.Size = new Size(384, 55);
             panel2.TabIndex = 14;
             // 
+            // hideye
+            // 
+            hideye.Image = (Image)resources.GetObject("hideye.Image");
+            hideye.Location = new Point(342, 9);
+            hideye.Name = "hideye";
+            hideye.Size = new Size(42, 40);
+            hideye.SizeMode = PictureBoxSizeMode.CenterImage;
+            hideye.TabIndex = 18;
+            hideye.TabStop = false;
+            hideye.Click += hideye_Click;
+            // 
             // txtLoginPass
             // 
             txtLoginPass.Font = new Font("Segoe UI", 12.75F);
@@ -227,7 +245,8 @@
             txtLoginPass.Margin = new Padding(3, 4, 3, 4);
             txtLoginPass.Multiline = true;
             txtLoginPass.Name = "txtLoginPass";
-            txtLoginPass.Size = new Size(325, 40);
+            txtLoginPass.PasswordChar = '*';
+            txtLoginPass.Size = new Size(289, 40);
             txtLoginPass.TabIndex = 10;
             // 
             // pictureBox4
@@ -255,6 +274,17 @@
             remember.Text = "Remember me";
             remember.UseVisualStyleBackColor = true;
             // 
+            // eye
+            // 
+            eye.Image = (Image)resources.GetObject("eye.Image");
+            eye.Location = new Point(342, 9);
+            eye.Name = "eye";
+            eye.Size = new Size(42, 40);
+            eye.SizeMode = PictureBoxSizeMode.CenterImage;
+            eye.TabIndex = 19;
+            eye.TabStop = false;
+            eye.Click += eye_Click;
+            // 
             // frmLogin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -279,7 +309,9 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)hideye).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)eye).EndInit();
             ResumeLayout(false);
         }
 
@@ -302,5 +334,7 @@
         private Panel panel2;
         private TextBox txtLoginPass;
         private PictureBox pictureBox4;
+        private PictureBox hideye;
+        private PictureBox eye;
     }
 }

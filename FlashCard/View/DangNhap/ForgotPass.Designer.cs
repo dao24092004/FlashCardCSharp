@@ -280,7 +280,7 @@
         private Panel PnForgotPass;
         private PictureBox pictureBox2;
         private Label label1;
-        private Button SIGNIN;
+        public Button SIGNIN;
         private Label BackToLogin;
         private Button SecurityCode;
         private Label errFgPass;
