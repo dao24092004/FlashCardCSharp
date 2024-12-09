@@ -6,7 +6,6 @@ D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.Form1.resources
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.PAGE1.resources
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.PAGE2.resources
-D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.PAGE3.resources
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.PAGE4.resources
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.PAGE5.resources
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.PageHome.resources
@@ -38,3 +37,6 @@ D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\bin\Debug\net8.0-windows\Debug\net8.0-windows\Debug\net8.0-windows\SHA3.Net.dll
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.AddWordForm.resources
 D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.QuanLyNguoiDung.resources
+D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.sourcelink.json
+D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.QuanLyChuDe.resources
+D:\execrcise\CSharp\FlashCardCSharp\FlashCard\obj\Debug\net8.0-windows\FlashCard.View.TrangChu.AddTopicForm.resources

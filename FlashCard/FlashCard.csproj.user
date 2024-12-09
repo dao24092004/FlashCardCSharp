@@ -28,9 +28,6 @@
     <Compile Update="View\TrangChu\PAGE2.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="View\TrangChu\PAGE3.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="View\TrangChu\PAGE4.cs">
       <SubType>UserControl</SubType>
     </Compile>

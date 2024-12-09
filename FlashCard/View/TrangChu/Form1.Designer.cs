@@ -51,7 +51,7 @@
             label2 = new Label();
             textBox1 = new TextBox();
             pagE21 = new PAGE2();
-            pagE31 = new PAGE3();
+            pagE31 = new QuanLyChuDe();
             pagE41 = new PAGE4();
             pagE51 = new PAGE5();
             notifyIcon1 = new NotifyIcon(components);
@@ -403,7 +403,7 @@
         private Label label3;
         private PAGE1 pagE11;
         private PAGE2 pagE21;
-        private PAGE3 pagE31;
+        private QuanLyChuDe pagE31;
         private PAGE4 pagE41;
         private PAGE5 pagE51;
         private NotifyIcon notifyIcon1;

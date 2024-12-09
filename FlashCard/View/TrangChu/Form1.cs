@@ -8,7 +8,7 @@ namespace FlashCard.View.TrangChu
 {
     public partial class Form1 : Form
     {
-        public User LoggedInUser { get; private set; }
+        public static User LoggedInUser { get; private set; }
 
 
         public Form1(User user)

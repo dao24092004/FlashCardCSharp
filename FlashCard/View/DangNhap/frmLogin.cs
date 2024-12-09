@@ -65,6 +65,9 @@ namespace FlashCard.View.DangNhap
             string email = txtLoginEmail.Text.Trim();
             string password = txtLoginPass.Text.Trim();
 
+
+            
+
             // Kiểm tra trường email có trống hay không
             if (string.IsNullOrEmpty(email))
             {

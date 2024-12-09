@@ -15,7 +15,7 @@ namespace FlashCard.Model
     internal class ImpUserDao : UserDao
     {
         private readonly OracleConnection _connection;
-
+        //khơi tạo lớp để thực thi các phương thức của interface 
         public ImpUserDao()
         {
             _connection = DatabaseConnection.GetInstance().GetConnection();

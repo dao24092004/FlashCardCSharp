@@ -1,5 +1,6 @@
 ﻿using System;
 using Oracle.ManagedDataAccess.Client;
+using System.IO;
 
 namespace FlashCard.Connection
 {
@@ -13,10 +14,8 @@ namespace FlashCard.Connection
         private static readonly string Password = "1234$"; // Mật khẩu Oracle
 
         private static readonly string ConnectionString =
-    $"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={Host})(PORT={Port})))" +
+            $"Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST={Host})(PORT={Port})))" +
             $"(CONNECT_DATA=(SERVICE_NAME={ServiceName})));User Id={Username};Password={Password};";
-
-
 
         // Singleton instance
         private static DatabaseConnection _instance;
@@ -51,8 +50,12 @@ namespace FlashCard.Connection
             }
             catch (OracleException ex)
             {
-                Console.WriteLine("Lỗi khi kết nối Oracle: " + ex.Message);
-                throw;
+                string errorMessage = $"Lỗi khi kết nối Oracle: {ex.Message} \nStackTrace: {ex.StackTrace}";
+                Console.WriteLine(errorMessage);
+
+                // Ghi lại lỗi vào file log để dễ dàng kiểm tra
+                File.WriteAllText("OracleConnectionError.log", errorMessage);
+                throw new InvalidOperationException("Không thể kết nối đến cơ sở dữ liệu Oracle.", ex);
             }
 
             return _connection;

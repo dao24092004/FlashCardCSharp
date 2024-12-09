@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlashCard.Entity
 {
-    internal class Topic
+    public class Topic
     {
         private int topic_id;
         private int user_id;
@@ -26,6 +26,21 @@ namespace FlashCard.Entity
             this.description = description;
         }
 
+        public Topic(int topic_id, string topicName, string description)
+        {
+            this.topic_id = topic_id;
+         
+            this.topicName = topicName;
+            this.description = description;
+        }
+
+        public Topic( string topicName, string description)
+        {
+           
+
+            this.topicName = topicName;
+            this.description = description;
+        }
         public Topic()
         {
         }
