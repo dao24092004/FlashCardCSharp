@@ -47,12 +47,12 @@ namespace FlashCard.View.TrangChu
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             int selectedIndex = comboBox1.SelectedIndex;
-            if (selectedIndex == 0)
+            if (selectedIndex == 1)
             {
                 targetLanguage = "en";
                 sourceLanguage = "vi";
             }
-            else if (selectedIndex == 1)
+            else if (selectedIndex == 0)
             {
                 targetLanguage = "vi";
                 sourceLanguage = "en";
@@ -113,6 +113,11 @@ namespace FlashCard.View.TrangChu
             {
                 dataGridView1.Rows.Add(item.Word, item.Meaning);
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

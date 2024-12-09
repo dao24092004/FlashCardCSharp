@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\execrcise\\CSharp\\FlashCardCSharp\\FlashCard\\FlashCard.csproj": {}
+    "D:\\execrcise\\CSharp\\testFinail\\FlashCard\\FlashCard.csproj": {}
   },
   "projects": {
-    "D:\\execrcise\\CSharp\\FlashCardCSharp\\FlashCard\\FlashCard.csproj": {
+    "D:\\execrcise\\CSharp\\testFinail\\FlashCard\\FlashCard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\execrcise\\CSharp\\FlashCardCSharp\\FlashCard\\FlashCard.csproj",
+        "projectUniqueName": "D:\\execrcise\\CSharp\\testFinail\\FlashCard\\FlashCard.csproj",
         "projectName": "FlashCard",
-        "projectPath": "D:\\execrcise\\CSharp\\FlashCardCSharp\\FlashCard\\FlashCard.csproj",
+        "projectPath": "D:\\execrcise\\CSharp\\testFinail\\FlashCard\\FlashCard.csproj",
         "packagesPath": "C:\\Users\\phamm\\.nuget\\packages\\",
-        "outputPath": "D:\\execrcise\\CSharp\\FlashCardCSharp\\FlashCard\\obj\\",
+        "outputPath": "D:\\execrcise\\CSharp\\testFinail\\FlashCard\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\phamm\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,14 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "GTranslate": {
+              "target": "Package",
+              "version": "[2.2.8, )"
+            },
+            "Oracle.ManagedDataAccess": {
+              "target": "Package",
+              "version": "[23.1.0, )"
+            },
             "Oracle.ManagedDataAccess.Core": {
               "target": "Package",
               "version": "[23.6.1, )"

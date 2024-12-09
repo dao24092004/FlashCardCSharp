@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FlashCard.Entity;
+using FlashCard.Model;
+using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,11 +17,15 @@ namespace FlashCard.View.TrangChu
     {
         private List<UserControl> panels; // Danh sách các panel
         private int currentIndex;         // Chỉ số panel hiện tại
+        private VocabularyDao vocabularyDao;
+        private int userId = Form1.LoggedInUser.UserID;
         public PAGE2()
         {
+            vocabularyDao = new ImplVocabularyDao();
             InitializeComponent();
             InitializeListPanel();
             LoadData();
+            
         }
         private void InitializeListPanel()
         {
@@ -42,6 +49,42 @@ namespace FlashCard.View.TrangChu
             panels[currentIndex].Visible = true;
             dataGridView1.RowHeadersVisible = false; // Ẩn viền hàng bên trái
             dataGridView1.BorderStyle = BorderStyle.None; // Loại bỏ đường viền ngoài cùng
+
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.BackgroundColor = Color.LightBlue; // Màu nền của DataGridView
+            dataGridView1.DefaultCellStyle.Font = new Font("Arial", 12); // Thay đổi phông chữ
+
+            dataGridView1.RowHeadersVisible = false; // Ẩn viền hàng bên trái
+            dataGridView1.BorderStyle = BorderStyle.None; // Loại bỏ đường viền ngoài cùng
+
+            // Thêm cột icon "Sửa"
+            DataGridViewImageColumn editIconColumn = new DataGridViewImageColumn
+            {
+                Name = "EditIcon",
+                HeaderText = "Sửa",
+                Image = ConvertByteArrayToImage(FlashCard.View.TrangChu.Properties.Resources.EditIcon), // Chuyển byte[] thành Image
+                ImageLayout = DataGridViewImageCellLayout.Zoom,
+                Width = 50
+            };
+            dataGridView1.Columns.Add(editIconColumn);
+
+            // Thêm cột icon "Xóa"
+            DataGridViewImageColumn deleteIconColumn = new DataGridViewImageColumn
+            {
+                Name = "DeleteIcon",
+                HeaderText = "Xóa",
+                Image = ConvertByteArrayToImage(Properties.Resources.DeleteIcon), // Chuyển byte[] thành Image
+                ImageLayout = DataGridViewImageCellLayout.Zoom,
+                Width = 50
+            };
+            dataGridView1.Columns.Add(deleteIconColumn);
+
+            // Gắn sự kiện xử lý nút
+            dataGridView1.CellClick += DataGridView1_CellClick;
+
+          
         }
         private void Panel_Click(object sender, EventArgs e)
         {
@@ -55,32 +98,55 @@ namespace FlashCard.View.TrangChu
             panels[currentIndex].Visible = true;  // Hiển thị panel tiếp theo
         }
 
-        // Lớp dữ liệu mẫu
-        private class Vocabulary
-        {
-            public string ID { get; set; }
-            public string Word { get; set; }
-            public string Meaning { get; set; }
-            public string Topic { get; set; }
-        }
+
+
 
         private void LoadData()
         {
-            var data = new List<Vocabulary>
+            try
             {
-                new Vocabulary { ID = "1", Word = "Apple", Meaning = "Quả táo", Topic = "Fruits" },
-                new Vocabulary { ID = "2", Word = "Car", Meaning = "Xe hơi", Topic = "Vehicles" },
-                new Vocabulary { ID = "3", Word = "House", Meaning = "Ngôi nhà", Topic = "Architecture" },
-                new Vocabulary { ID = "4", Word = "Sun", Meaning = "Mặt trời", Topic = "Nature" }
-            };
+                // Kiểm tra các đối tượng cần thiết đã được khởi tạo
+                if (vocabularyDao == null)
+                    throw new NullReferenceException("Đối tượng 'vocabularyDao' chưa được khởi tạo.");
 
-            foreach (var item in data)
+                if ( userId == 0)
+                    throw new NullReferenceException("Thông tin người dùng 'user' hoặc 'UserID' chưa hợp lệ.");
+
+                // Xóa dữ liệu cũ trên DataGridView
+                dataGridView1.Rows.Clear();
+
+                // Lấy dữ liệu từ cơ sở dữ liệu
+                List<object[]> list = vocabularyDao.LoadVocabularyData(userId, "ASC", null, null);
+
+                if (list == null || list.Count == 0)
+                {
+                    // Hiển thị thông báo nếu không có dữ liệu
+                    MessageBox.Show("Không có dữ liệu để hiển thị.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                // Thêm dữ liệu vào DataGridView
+                foreach (var item in list)
+                {
+                    dataGridView1.Rows.Add(item[0], item[1], item[2], item[3]); // vocab_id, word, meaning, topic_name.
+                }
+            }
+            catch (NullReferenceException ex)
             {
-                dataGridView1.Rows.Add(item.ID, item.Word, item.Meaning, item.Topic);
+                MessageBox.Show($"Lỗi tham chiếu null: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView1_CellClick(sender, e, vocabularyDao);
+        }
+
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e, VocabularyDao vocabularyDao)
         {
             if (e.RowIndex >= 0 && e.RowIndex < dataGridView1.Rows.Count) // Đảm bảo hàng hợp lệ
             {
@@ -114,9 +180,52 @@ namespace FlashCard.View.TrangChu
                 ShowPanel(0);
             }
 
+            if (e.RowIndex >= 0) // Đảm bảo không nhấn vào header
+            {
+                if (dataGridView1.Columns[e.ColumnIndex].Name == "EditIcon")
+                {
+                    int id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+                    // Tạo instance của AddWordForm
+                    using (AddWordForm addForm = new AddWordForm(userId, id))//0 o day la turong hop add
+                    {
+                        // Hiển thị AddWordForm dưới dạng hộp thoại
+                        if (addForm.ShowDialog() == DialogResult.OK)
+                        {
+                            // Lấy dữ liệu từ AddWordForm và thêm vào DataGridView
+                            LoadData();
+                        }
+                    }
+                    // Thêm logic sửa tại đây
+                }
+                else if (dataGridView1.Columns[e.ColumnIndex].Name == "DeleteIcon")
+                {
+                    int id = int.Parse(dataGridView1.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+                    Vocabulary voca = vocabularyDao.FindById(id);
+                    var confirmResult = MessageBox.Show($"Bạn có chắc muốn xóa từ  {voca.Word}?", "Xác nhận", MessageBoxButtons.YesNo);
+                    if (confirmResult == DialogResult.Yes)
+                    {
+                        vocabularyDao.DeleteById(id);
+                        LoadData();
+                    }
+                }
+            }
+
         }
 
+        
+        // Hàm chuyển byte[] thành Image
+        private Image ConvertByteArrayToImage(byte[] byteArray)
+        {
+            using (MemoryStream ms = new MemoryStream(byteArray))
+            {
+                return Image.FromStream(ms);
+            }
+        }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
         private void ShowPanel(int index)
         {
             // Ẩn tất cả các panel

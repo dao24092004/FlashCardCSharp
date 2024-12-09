@@ -10,6 +10,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="GTranslate" Version="2.2.8" />
+    <PackageReference Include="Oracle.ManagedDataAccess" Version="23.1.0" />
     <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="23.6.1" />
     <PackageReference Include="SHA3.Net" Version="2.0.0" />
   </ItemGroup>

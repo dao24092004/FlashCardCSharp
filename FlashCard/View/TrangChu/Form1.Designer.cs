@@ -51,10 +51,9 @@
             panel6 = new Panel();
             label2 = new Label();
             textBox1 = new TextBox();
-            pagE21 = new PAGE2();
             pagE31 = new QuanLyChuDe();
+            pagE21 = new PAGE2();
             pagE41 = new PAGE4();
-            pagE51 = new PAGE5();
             notifyIcon1 = new NotifyIcon(components);
             kiemtra1 = new Kiemtra();
             panel1.SuspendLayout();
@@ -339,13 +338,6 @@
             textBox1.TabIndex = 0;
             textBox1.Text = "Tim kiem";
             // 
-            // pagE21
-            // 
-            pagE21.Location = new Point(250, 154);
-            pagE21.Name = "pagE21";
-            pagE21.Size = new Size(960, 473);
-            pagE21.TabIndex = 5;
-            // 
             // pagE31
             // 
             pagE31.Location = new Point(250, 154);
@@ -355,17 +347,21 @@
             // 
             // pagE41
             // 
+
+            pagE21.Location = new Point(250, 154);
+            pagE21.Name = "pagE21";
+            pagE21.Size = new Size(960, 476);
+            pagE21.TabIndex = 10;
+            // 
+            // pagE41
+            // 
+
+
+
             pagE41.Location = new Point(250, 154);
             pagE41.Name = "pagE41";
             pagE41.Size = new Size(960, 476);
             pagE41.TabIndex = 7;
-            // 
-            // pagE51
-            // 
-            pagE51.Location = new Point(250, 109);
-            pagE51.Name = "pagE51";
-            pagE51.Size = new Size(1019, 476);
-            pagE51.TabIndex = 8;
             // 
             // notifyIcon1
             // 
@@ -385,10 +381,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1210, 630);
             Controls.Add(kiemtra1);
-            Controls.Add(pagE51);
             Controls.Add(pagE41);
             Controls.Add(pagE31);
-            Controls.Add(pagE21);
             Controls.Add(panel6);
             Controls.Add(panel2);
             Controls.Add(panel1);
@@ -432,7 +426,7 @@
         private PAGE2 pagE21;
         private QuanLyChuDe pagE31;
         private PAGE4 pagE41;
-        private PAGE5 pagE51;
+        private ThongTinNguoiDung pagE51;
         private NotifyIcon notifyIcon1;
         private Button button7;
         private Button Kiemtra;

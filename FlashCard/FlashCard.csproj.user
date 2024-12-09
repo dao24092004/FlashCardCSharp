@@ -13,11 +13,17 @@
     <Compile Update="View\DangNhap\Register.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\DangNhap\xacthuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\TrangChu\AddWordForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\TrangChu\Form1.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\TrangChu\Kiemtra.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="View\TrangChu\PAGE1.cs">
       <SubType>UserControl</SubType>
@@ -34,7 +40,19 @@
     <Compile Update="View\TrangChu\PAGE5.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\TrangChu\pnHinhAnh.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\TrangChu\pnNghiaTu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\TrangChu\pnTuVung.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\TrangChu\test.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\TrangChu\ThongTinNguoiDung.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="View\TrangChu\Trangchu.cs">

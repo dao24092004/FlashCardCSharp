@@ -50,6 +50,8 @@
             comboBox1.Size = new Size(246, 28);
             comboBox1.TabIndex = 2;
             comboBox1.Text = "Dịch sang Tiếng Anh";
+            comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
+            comboBox1.Click += comboBox1_SelectedIndexChanged;
             // 
             // txtInput
             // 
@@ -91,6 +93,7 @@
             Dich.TabIndex = 12;
             Dich.Text = "Dịch";
             Dich.UseVisualStyleBackColor = true;
+            Dich.Click += Dich_Click;
             // 
             // Luu
             // 
@@ -102,6 +105,7 @@
             Luu.TabIndex = 13;
             Luu.Text = "Lưu Từ";
             Luu.UseVisualStyleBackColor = true;
+            Luu.Click += Luu_Click;
             // 
             // dataGridView1
             // 

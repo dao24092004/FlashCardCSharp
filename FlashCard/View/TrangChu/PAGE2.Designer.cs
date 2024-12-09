@@ -33,7 +33,7 @@
             Word = new DataGridViewTextBoxColumn();
             Meaning = new DataGridViewTextBoxColumn();
             Topic = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewImageColumn();
+           
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
@@ -41,14 +41,14 @@
             // 
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Word, Meaning, Topic, Column1 });
-            dataGridView1.Cursor = Cursors.Hand;
-            dataGridView1.Location = new Point(0, 225);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { ID, Word, Meaning, Topic });
+            dataGridView1.Cursor = Cursors.IBeam;
+            dataGridView1.Location = new Point(-3, 108);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(960, 251);
-            dataGridView1.TabIndex = 1;
-            dataGridView1.CellContentClick += DataGridView1_CellClick;
+            dataGridView1.Size = new Size(960, 366);
+            dataGridView1.TabIndex = 0;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
             // ID
             // 
@@ -80,12 +80,7 @@
             // 
             // Column1
             // 
-            Column1.HeaderText = "Thao tac";
-            Column1.MinimumWidth = 6;
-            Column1.Name = "Column1";
-            Column1.ReadOnly = true;
-            Column1.Resizable = DataGridViewTriState.True;
-            Column1.SortMode = DataGridViewColumnSortMode.Automatic;
+           
             // 
             // PAGE2
             // 
